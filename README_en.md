@@ -14,11 +14,11 @@ Below are two screenshots of the application:
 
 ### Default view (no Pokémon selected)
 This view shows the interface when the page loads, with the Pokémon list on the left and a message prompting the user to select a Pokémon.
-![Default Pokédex View](./pokedex/assets/pokedex-default.png)
+![Default Pokédex View](./Pokedex/assets/pokedex-default.png)
 
 ### Selected Pokémon with search
 This view displays the details after a user searches and selects a Pokémon, showing its stats and additional information.
-![Selected Pokémon View](./pokedex/assets/pokedex-selected.png)
+![Selected Pokémon View](./Pokedex/assets/pokedex-selected.png)
 
 ## User Instructions
 
