@@ -1,0 +1,343 @@
+/* Basic reset to avoid default spacing issues */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set global font and background */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e33f3e;
+}
+
+/* Main app container using flex to separate sidebar and detail panel */
+.container {
+    display: flex;
+    height: 100vh;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Sidebar (Pokémon list panel) */
+.sidebar {
+    width: 30%;
+    background-color: #450000;
+    color: white;
+    overflow: hidden;
+    padding: 0;
+    border: 3px solid #ff8584;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar title styling */
+.sidebar h2 {
+    padding: 1rem;
+    flex-shrink: 0;
+}
+
+/* Scrollable list inside the sidebar */
+.pokemon-list-scroll {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Custom scrollbars for sidebar and detail panel */
+.pokemon-list-scroll::-webkit-scrollbar,
+.details::-webkit-scrollbar {
+  width: 15px;
+}
+
+.pokemon-list-scroll::-webkit-scrollbar-thumb,
+.details::-webkit-scrollbar-thumb {
+  background: #e2403e;
+  border-radius: 4px;
+}
+
+.pokemon-list-scroll::-webkit-scrollbar-thumb:active,
+.details::-webkit-scrollbar-thumb:active {
+  background-color: #b13334;
+}
+
+.pokemon-list-scroll::-webkit-scrollbar-thumb:hover,
+.details::-webkit-scrollbar-thumb:hover {
+  background: #e2403e;
+}
+
+.pokemon-list-scroll::-webkit-scrollbar-track,
+.details::-webkit-scrollbar-track {
+  background: #b13334;
+  border-radius: 4px;
+}
+
+/* Pokémon list layout */
+.pokemon-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Each Pokémon item in the list */
+.pokemon-item {
+    width: 100%;
+    background-color: #470101;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-bottom: 1px solid #700807;
+    border-radius: 0;
+}
+
+/* Hover effect and selected state */
+.pokemon-item:hover,
+.pokemon-item.selected {
+    background-color: #700807;
+}
+
+/* Round corners for first and last items */
+.pokemon-item:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.pokemon-item:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom: none;
+}
+
+/* Small Pokémon image in list */
+.pokemon-item img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+/* Main detail panel */
+.details {
+    width: 70%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid #ff8584;
+    padding: 2rem;
+    overflow-y: scroll;
+}
+
+/* Search bar layout and input */
+.search-bar {
+    position: relative;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-bar input {
+    padding: 0.7rem 2.5rem 0.7rem 1rem;
+    width: 250px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f8f8f8;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Input focus effect */
+.search-bar input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #f87171;
+    background-color: white;
+}
+
+/* Magnifying glass icon in the input */
+.search-bar .search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Pokémon type badges */
+.pokemon-types {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.type-badge {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 16px;
+    background-color: #f2dede;
+    font-weight: bold;
+    color: black;
+    font-size: 0.9rem;
+    margin: auto;
+}
+
+/* Container for both basic info and stats */
+.pokemon-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main section inside the details panel */
+.pokemon-main-section {
+    display: flex;
+    gap: 2rem;
+}
+
+/* Basic Pokémon info (image, name, types) */
+.pokemon-basic-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.pokemon-basic-info img {
+    width: 180px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.pokemon-basic-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Pokémon name inside the list */
+.pokemon-name {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+/* Small Pokémon ID number */
+.pokemon-code {
+  font-size: 0.85em;
+  color: #ddd;
+}
+
+/* Stats section on the right side */
+.pokemon-stats-details {
+    flex: 2;
+    padding: 1.5rem;
+    margin: auto;
+}
+
+/* Style the stat list */
+.stats-list {
+    list-style: none;
+    padding: 0;
+}
+
+.stats-list li {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Section title in the stats list */
+.stats-list .info-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: black;
+}
+
+/* Labels like "Weight", "Height" */
+.stats-list li strong {
+    color: black;
+    font-weight: 600;
+    margin-right: 0.3rem;
+}
+
+/* Divider line before the evolution section */
+.evolution-divider {
+    width: 100%;
+    height: 3px;
+    background-color: #e04040;
+    margin: 1rem 0;
+}
+
+/* Evolution section container */
+.evolution-container {
+    width: 100%;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+.evolution-container h4 {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    color: black;
+}
+
+/* Layout for evolution sequence */
+.evolution-sequence {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Each evolution step */
+.evolution-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.evolution-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+
+/* Arrow between evolutions */
+.arrow {
+    font-size: 2rem;
+    color: #e04040;
+    font-weight: bold;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .pokemon-main-section {
+        flex-direction: column;
+    }
+
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar,
+    .details {
+        width: 100%;
+    }
+
+    .sidebar {
+        max-height: 40vh;
+    }
+
+    .evolution-sequence {
+        flex-direction: column;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+    }
+}
