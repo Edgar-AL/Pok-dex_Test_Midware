@@ -34,15 +34,15 @@ This view displays the details after a user searches and selects a Pokémon, sho
 
 ```
 pokedex/
-├── index.html              Main application page
-├── styles/
-│   └── main.css            Custom styles
-├── scripts/
-│   └── app.js              Main JavaScript logic
-├── assets/
-│   ├── pokedex-default.png      Default interface screenshot
-│   └── pokedex-selected.png     Screenshot with selected Pokémon
-└── README.md               Instructions and technical manual
+index.html              Main application page
+  styles/
+  main.css            Custom styles
+  scripts/
+    app.js              Main JavaScript logic
+  assets/
+    pokedex-default.png      Default interface screenshot
+    pokedex-selected.png     Screenshot with selected Pokémon
+README.md               Instructions and technical manual
 ```
 
 ### Technologies Used
